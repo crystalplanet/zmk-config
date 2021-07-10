@@ -1,12 +1,12 @@
 # Copyright (c) 2021 Kuba Birecki
 # SPDX-License-Identifier: MIT
 
-# Orion 92 keyboard configuration
+# Muri One keyboard configuration
 
-if BOARD_ORION_92
+if BOARD_MURI_ONE
 
 config ZMK_KEYBOARD_NAME
-	default "Orion 92"
+	default "Muri ONE"
 
 if USB
 
@@ -24,13 +24,13 @@ config BT_CTLR
 config ZMK_BLE
 	default y
 
-config ZMK_BATTERY_VOLTAGE_DIVIDER
+config ZMK_KSCAN_MATRIX_POLLING
 	default y
 
-config ZMK_KSCAN_MATRIX_POLLING
+config ZMK_SLEEP
 	default y
 
 config ZMK_USB
 	default y
 
-endif # BOARD_ORION_92
+endif # BOARD_MURI_ONE
