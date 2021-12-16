@@ -11,6 +11,7 @@
 #include <dt-bindings/zmk/issi_transform.h>
 
 #include <dt-bindings/zmk/animation.h>
+#include <dt-bindings/zmk/animation_compose.h>
 
 / {
 	model = "Muri ONE";
@@ -74,135 +75,191 @@
 	animation {
 		compatible = "zmk,animation";
 		drivers = <&led_matrix>;
-		animations = <&solid_peach_purple &solid_miami_green>;
+		animations = <
+			&zone_modifiers &zone_keys &zone_strip
+			&color_pink &color_blue
+			&effect_ripple
+		>;
 
 		pixels
-			= <&solid_peach_purple 21 255>
-			, <&solid_peach_purple 48 255>
-			, <&solid_peach_purple 61 255>
-			, <&solid_peach_purple 75 255>
-			, <&solid_peach_purple 89 255>
-			, <&solid_peach_purple 109 255>
-			, <&solid_peach_purple 123 255>
-			, <&solid_peach_purple 136 255>
-			, <&solid_peach_purple 150 255>
-			, <&solid_peach_purple 170 255>
-			, <&solid_peach_purple 184 255>
-			, <&solid_peach_purple 197 255>
-			, <&solid_peach_purple 211 255>
-			, <&solid_peach_purple 227 255>
-			, <&solid_peach_purple 241 255>
-			, <&solid_peach_purple 255 255>
-			, <&solid_peach_purple 0 204>
-			, <&solid_peach_purple 21 204>
-			, <&solid_peach_purple 34 204>
-			, <&solid_peach_purple 48 204>
-			, <&solid_peach_purple 61 204>
-			, <&solid_peach_purple 75 204>
-			, <&solid_peach_purple 89 204>
-			, <&solid_peach_purple 102 204>
-			, <&solid_peach_purple 116 204>
-			, <&solid_peach_purple 129 204>
-			, <&solid_peach_purple 143 204>
-			, <&solid_peach_purple 156 204>
-			, <&solid_peach_purple 170 204>
-			, <&solid_peach_purple 184 204>
-			, <&solid_peach_purple 204 204>
-			, <&solid_peach_purple 227 204>
-			, <&solid_peach_purple 241 204>
-			, <&solid_peach_purple 255 204>
-			, <&solid_peach_purple 0 153>
-			, <&solid_peach_purple 24 153>
-			, <&solid_peach_purple 41 153>
-			, <&solid_peach_purple 55 153>
-			, <&solid_peach_purple 68 153>
-			, <&solid_peach_purple 82 153>
-			, <&solid_peach_purple 95 153>
-			, <&solid_peach_purple 109 153>
-			, <&solid_peach_purple 122 153>
-			, <&solid_peach_purple 136 153>
-			, <&solid_peach_purple 149 153>
-			, <&solid_peach_purple 163 153>
-			, <&solid_peach_purple 176 153>
-			, <&solid_peach_purple 190 153>
-			, <&solid_peach_purple 208 153>
-			, <&solid_peach_purple 227 153>
-			, <&solid_peach_purple 241 153>
-			, <&solid_peach_purple 255 153>
-			, <&solid_peach_purple 0 102>
-			, <&solid_peach_purple 26 102>
-			, <&solid_peach_purple 45 102>
-			, <&solid_peach_purple 58 102>
-			, <&solid_peach_purple 72 102>
-			, <&solid_peach_purple 85 102>
-			, <&solid_peach_purple 99 102>
-			, <&solid_peach_purple 112 102>
-			, <&solid_peach_purple 126 102>
-			, <&solid_peach_purple 139 102>
-			, <&solid_peach_purple 153 102>
-			, <&solid_peach_purple 166 102>
-			, <&solid_peach_purple 180 102>
-			, <&solid_peach_purple 202 102>
-			, <&solid_peach_purple 0 51>
-			, <&solid_peach_purple 29 51>
-			, <&solid_peach_purple 51 51>
-			, <&solid_peach_purple 64 51>
-			, <&solid_peach_purple 78 51>
-			, <&solid_peach_purple 91 51>
-			, <&solid_peach_purple 105 51>
-			, <&solid_peach_purple 118 51>
-			, <&solid_peach_purple 132 51>
-			, <&solid_peach_purple 145 51>
-			, <&solid_peach_purple 159 51>
-			, <&solid_peach_purple 172 51>
-			, <&solid_peach_purple 199 51>
-			, <&solid_peach_purple 241 51>
-			, <&solid_peach_purple 0 0>
-			, <&solid_peach_purple 22 0>
-			, <&solid_peach_purple 39 0>
-			, <&solid_peach_purple 56 0>
-			, <&solid_peach_purple 107 0>
-			, <&solid_peach_purple 158 0>
-			, <&solid_peach_purple 175 0>
-			, <&solid_peach_purple 192 0>
-			, <&solid_peach_purple 209 0>
-			, <&solid_peach_purple 227 0>
-			, <&solid_peach_purple 241 0>
-			, <&solid_peach_purple 255 0>
-			, <&solid_miami_green 0 0>
-			, <&solid_miami_green 64 0>
-			, <&solid_miami_green 128 0>
-			, <&solid_miami_green 192 0>
-			, <&solid_miami_green 255 0>
+			= <&zone_modifiers 21 68>
+			, <&zone_keys 48 68>
+			, <&zone_keys 61 68>
+			, <&zone_keys 75 68>
+			, <&zone_keys 89 68>
+			, <&zone_modifiers 109 68>
+			, <&zone_modifiers 123 68>
+			, <&zone_modifiers 136 68>
+			, <&zone_modifiers 150 68>
+			, <&zone_keys 170 68>
+			, <&zone_keys 184 68>
+			, <&zone_keys 197 68>
+			, <&zone_keys 211 68>
+			, <&zone_modifiers 227 68>
+			, <&zone_modifiers 241 68>
+			, <&zone_modifiers 255 68>
+			, <&zone_keys 0 54>
+			, <&zone_keys 21 54>
+			, <&zone_keys 34 54>
+			, <&zone_keys 48 54>
+			, <&zone_keys 61 54>
+			, <&zone_keys 75 54>
+			, <&zone_keys 89 54>
+			, <&zone_keys 102 54>
+			, <&zone_keys 116 54>
+			, <&zone_keys 129 54>
+			, <&zone_keys 143 54>
+			, <&zone_keys 156 54>
+			, <&zone_keys 170 54>
+			, <&zone_keys 184 54>
+			, <&zone_modifiers 204 54>
+			, <&zone_modifiers 227 54>
+			, <&zone_modifiers 241 54>
+			, <&zone_modifiers 255 54>
+			, <&zone_keys 0 41>
+			, <&zone_modifiers 24 41>
+			, <&zone_keys 41 41>
+			, <&zone_keys 55 41>
+			, <&zone_keys 68 41>
+			, <&zone_keys 82 41>
+			, <&zone_keys 95 41>
+			, <&zone_keys 109 41>
+			, <&zone_keys 122 41>
+			, <&zone_keys 136 41>
+			, <&zone_keys 149 41>
+			, <&zone_keys 163 41>
+			, <&zone_keys 176 41>
+			, <&zone_keys 190 41>
+			, <&zone_keys 208 41>
+			, <&zone_modifiers 227 41>
+			, <&zone_modifiers 241 41>
+			, <&zone_modifiers 255 41>
+			, <&zone_keys 0 27>
+			, <&zone_modifiers 26 27>
+			, <&zone_keys 45 27>
+			, <&zone_keys 58 27>
+			, <&zone_keys 72 27>
+			, <&zone_keys 85 27>
+			, <&zone_keys 99 27>
+			, <&zone_keys 112 27>
+			, <&zone_keys 126 27>
+			, <&zone_keys 139 27>
+			, <&zone_keys 153 27>
+			, <&zone_keys 166 27>
+			, <&zone_keys 180 27>
+			, <&zone_modifiers 202 27>
+			, <&zone_keys 0 14>
+			, <&zone_modifiers 29 14>
+			, <&zone_keys 51 14>
+			, <&zone_keys 64 14>
+			, <&zone_keys 78 14>
+			, <&zone_keys 91 14>
+			, <&zone_keys 105 14>
+			, <&zone_keys 118 14>
+			, <&zone_keys 132 14>
+			, <&zone_keys 145 14>
+			, <&zone_keys 159 14>
+			, <&zone_keys 172 14>
+			, <&zone_modifiers 199 14>
+			, <&zone_modifiers 241 14>
+			, <&zone_keys 0 0>
+			, <&zone_modifiers 22 0>
+			, <&zone_modifiers 39 0>
+			, <&zone_modifiers 56 0>
+			, <&zone_modifiers 107 0>
+			, <&zone_modifiers 158 0>
+			, <&zone_modifiers 175 0>
+			, <&zone_modifiers 192 0>
+			, <&zone_modifiers 209 0>
+			, <&zone_modifiers 227 0>
+			, <&zone_modifiers 241 0>
+			, <&zone_modifiers 255 0>
+			, <&zone_strip 0 0>
+			, <&zone_strip 64 0>
+			, <&zone_strip 128 0>
+			, <&zone_strip 192 0>
+			, <&zone_strip 255 0>
 			;
 	};
 
-	solid_peach_purple: animation_0 {
-		compatible = "zmk,animation-solid";
+	zone_modifiers: animation_0 {
+		compatible = "zmk,animation-compose";
 		status = "okay";
 
-		label = "solid1";
+		label = "zone_modifiers";
 		#pixel-cells = <2>;
 
-		duration = <15>;
-		colors = <
-			HSL(30, 93, 71)
-			HSL(256, 50, 40)
+		animations = <
+			&color_pink
+			&effect_ripple
+		>;
+		blending-modes = <
+			BLENDING_MODE_NORMAL
+			BLENDING_MODE_SUBTRACT
 		>;
 	};
 
-	solid_miami_green: animation_1 {
+	zone_keys: animation_1 {
+		compatible = "zmk,animation-compose";
+		status = "okay";
+
+		label = "zone_keys";
+		#pixel-cells = <2>;
+
+		animations = <
+			&color_blue
+			&effect_ripple
+		>;
+		blending-modes = <
+			BLENDING_MODE_NORMAL
+			BLENDING_MODE_SUBTRACT
+		>;
+	};
+
+	zone_strip: animation_2 {
 		compatible = "zmk,animation-solid";
 		status = "okay";
 
-		label = "solid2";
+		label = "zone_strip";
 		#pixel-cells = <2>;
 
-		duration = <10>;
+		duration = <5>;
 		colors = <
 			HSL(82, 100, 67)
 			HSL(174, 100, 62)
 		>;
+	};
+
+	color_pink: animation_3 {
+		compatible = "zmk,animation-solid";
+		status = "okay";
+
+		label = "color_pink";
+		#pixel-cells = <2>;
+
+		colors = <HSL(310, 88, 77)>;
+	};
+
+	color_blue: animation_4 {
+		compatible = "zmk,animation-solid";
+		status = "okay";
+
+		label = "color_blue";
+		#pixel-cells = <2>;
+
+		colors = <HSL(180, 90, 44)>;
+	};
+
+	effect_ripple: animation_5 {
+		compatible = "zmk,animation-ripple";
+		status = "okay";
+
+		label = "effect_ripple";
+		#pixel-cells = <2>;
+
+		duration = <1000>;
+		color = <HSL(0, 0, 100)>;
+		ripple-width = <50>;
 	};
 };
 
@@ -357,61 +414,65 @@
 			RGB(SW(8), CS(26), CS(27), CS(25))
 		>;
 
+		// Theoretically, it consumes ~78.5 - 89mA with LEDs on max brightness white
+		// using these settings
+		//
+		// Which gives ~18h.
 		red-gamma = <
-			0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-			0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1
-			1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2
-			2 3 3 3 3 3 3 3 4 4 4 4 4 5 5 5
-			5 6 6 6 6 7 7 7 7 8 8 8 9 9 9 10
-			10 10 11 11 11 12 12 13 13 13 14 14 15 15 16 16
-			17 17 18 18 19 19 20 20 21 21 22 22 23 24 24 25
-			25 26 27 27 28 29 29 30 31 32 32 33 34 35 35 36
-			37 38 39 39 40 41 42 43 44 45 46 47 48 49 50 50
-			51 52 54 55 56 57 58 59 60 61 62 63 64 66 67 68
-			69 70 72 73 74 75 77 78 79 81 82 83 85 86 87 89
-			90 92 93 95 96 98 99 101 102 104 105 107 109 110 112 114
-			115 117 119 120 122 124 126 127 129 131 133 135 137 138 140 142
-			144 146 148 150 152 154 156 158 160 162 164 167 169 171 173 175
-			177 180 182 184 186 189 191 193 196 198 200 203 205 208 210 213
-			215 218 220 223 225 228 231 233 236 239 241 244 247 249 252 255
+			0 0 0 0 1 1 1 1 2 2 2 2 3 3 3 3
+			4 4 4 4 5 5 5 5 6 6 6 6 7 7 7 7
+			8 8 8 8 9 9 9 9 10 10 10 10 11 11 11 11
+			12 12 12 12 13 13 13 13 14 14 14 14 15 15 15 15
+			16 16 16 16 17 17 17 17 18 18 18 18 19 19 19 19
+			20 20 20 20 21 21 21 21 22 22 22 22 23 23 23 23
+			24 24 24 24 25 25 25 25 26 26 26 26 27 27 27 27
+			28 28 28 28 29 29 29 29 32 32 32 32 35 35 35 35
+			38 38 38 38 42 42 42 42 45 45 45 45 49 49 49 49
+			53 53 53 53 57 57 57 57 62 62 62 62 67 67 67 67
+			71 71 71 71 77 77 77 77 82 82 82 82 88 88 88 88
+			93 93 93 93 99 99 99 99 106 106 106 106 112 112 112 112
+			119 119 119 119 126 126 126 126 134 134 134 134 141 141 141 141
+			149 149 149 149 157 157 157 157 166 166 166 166 174 174 174 174
+			183 183 183 183 193 193 193 193 202 202 202 202 212 212 212 212
+			222 222 222 222 233 233 233 233 244 244 244 244 255 255 255 255
 		>;
 
 		green-gamma = <
-			0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-			0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-			0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1
-			1 1 1 1 1 1 1 1 1 1 1 1 2 2 2 2
-			2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3
-			3 4 4 4 4 4 4 4 5 5 5 5 5 5 5 6
-			6 6 6 6 6 7 7 7 7 7 8 8 8 8 8 9
-			9 9 9 10 10 10 10 11 11 11 11 12 12 12 12 13
-			13 13 14 14 14 14 15 15 15 16 16 16 17 17 17 18
-			18 18 19 19 19 20 20 21 21 21 22 22 23 23 23 24
-			24 25 25 25 26 26 27 27 28 28 29 29 30 30 31 31
-			32 32 33 33 34 34 35 35 36 36 37 37 38 39 39 40
-			40 41 42 42 43 43 44 45 45 46 46 47 48 48 49 50
-			50 51 52 53 53 54 55 55 56 57 58 58 59 60 61 61
-			62 63 64 64 65 66 67 68 68 69 70 71 72 73 74 74
-			75 76 77 78 79 80 81 82 83 83 84 85 86 87 88 89
+			0 0 0 0 1 1 1 1 2 2 2 2 3 3 3 3
+			4 4 4 4 5 5 5 5 6 6 6 6 7 7 7 7
+			8 8 8 8 9 9 9 9 10 10 10 10 11 11 11 11
+			12 12 12 12 13 13 13 13 14 14 14 14 15 15 15 15
+			16 16 16 16 17 17 17 17 18 18 18 18 19 19 19 19
+			20 20 20 20 21 21 21 21 22 22 22 22 23 23 23 23
+			24 24 24 24 25 25 25 25 26 26 26 26 27 27 27 27
+			28 28 28 28 29 29 29 29 30 30 30 30 31 31 31 31
+			32 32 32 32 33 33 33 33 34 34 34 34 35 35 35 35
+			36 36 36 36 37 37 37 37 38 38 38 38 39 39 39 39
+			40 40 40 40 41 41 41 41 42 42 42 42 43 43 43 43
+			44 44 44 44 45 45 45 45 46 46 46 46 47 47 47 47
+			48 48 48 48 49 49 49 49 50 50 50 50 51 51 51 51
+			52 52 52 52 55 55 55 55 58 58 58 58 61 61 61 61
+			64 64 64 64 67 67 67 67 71 71 71 71 74 74 74 74
+			78 78 78 78 82 82 82 82 85 85 85 85 89 89 89 89
 		>;
 
 		blue-gamma = <
-			0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-			0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-			0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1
-			1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2
-			2 2 2 2 2 2 2 2 2 2 2 2 3 3 3 3
-			3 3 3 3 3 4 4 4 4 4 4 4 4 5 5 5
-			5 5 5 5 6 6 6 6 6 6 7 7 7 7 7 7
-			8 8 8 8 8 9 9 9 9 9 10 10 10 10 11 11
-			11 11 12 12 12 12 13 13 13 13 14 14 14 15 15 15
-			15 16 16 16 17 17 17 18 18 18 19 19 19 20 20 20
-			21 21 21 22 22 23 23 23 24 24 25 25 25 26 26 27
-			27 28 28 28 29 29 30 30 31 31 32 32 33 33 34 34
-			35 35 36 36 37 37 38 38 39 39 40 40 41 42 42 43
-			43 44 44 45 46 46 47 47 48 49 49 50 51 51 52 53
-			53 54 55 55 56 57 57 58 59 59 60 61 62 62 63 64
-			65 65 66 67 68 68 69 70 71 72 72 73 74 75 76 77
+			0 0 0 0 1 1 1 1 2 2 2 2 3 3 3 3
+			4 4 4 4 5 5 5 5 6 6 6 6 7 7 7 7
+			8 8 8 8 9 9 9 9 10 10 10 10 11 11 11 11
+			12 12 12 12 13 13 13 13 14 14 14 14 15 15 15 15
+			16 16 16 16 17 17 17 17 18 18 18 18 19 19 19 19
+			20 20 20 20 21 21 21 21 22 22 22 22 23 23 23 23
+			24 24 24 24 25 25 25 25 26 26 26 26 27 27 27 27
+			28 28 28 28 29 29 29 29 30 30 30 30 31 31 31 31
+			32 32 32 32 33 33 33 33 34 34 34 34 35 35 35 35
+			36 36 36 36 37 37 37 37 38 38 38 38 39 39 39 39
+			40 40 40 40 41 41 41 41 42 42 42 42 43 43 43 43
+			44 44 44 44 45 45 45 45 46 46 46 46 47 47 47 47
+			48 48 48 48 49 49 49 49 50 50 50 50 51 51 51 51
+			52 52 52 52 53 53 53 53 54 54 54 54 55 55 55 55
+			56 56 56 56 58 58 58 58 61 61 61 61 64 64 64 64
+			67 67 67 67 70 70 70 70 73 73 73 73 77 77 77 77
 		>;
 	};
 };
