@@ -13,6 +13,8 @@
 #include <dt-bindings/zmk/animation.h>
 #include <dt-bindings/zmk/animation_compose.h>
 
+#include './muri_one_animation_zones.h';
+
 / {
 	model = "Muri ONE";
 
@@ -23,6 +25,7 @@
 		zephyr,i2c0 = &i2c0;
 		zmk,kscan = &kscan0;
 		zmk,matrix_transform = &default_transform;
+		zmk,animation = &root_animation;
 	};
 
 	kscan0: kscan_0 {
@@ -75,153 +78,40 @@
 	animation {
 		compatible = "zmk,animation";
 		drivers = <&led_matrix>;
-		animations = <
-			&zone_modifiers &zone_keys &zone_strip
-			&color_pink &color_blue
-			&effect_ripple
-		>;
 
-		pixels
-			= <&zone_modifiers 21 68>
-			, <&zone_keys 48 68>
-			, <&zone_keys 61 68>
-			, <&zone_keys 75 68>
-			, <&zone_keys 89 68>
-			, <&zone_modifiers 109 68>
-			, <&zone_modifiers 123 68>
-			, <&zone_modifiers 136 68>
-			, <&zone_modifiers 150 68>
-			, <&zone_keys 170 68>
-			, <&zone_keys 184 68>
-			, <&zone_keys 197 68>
-			, <&zone_keys 211 68>
-			, <&zone_modifiers 227 68>
-			, <&zone_modifiers 241 68>
-			, <&zone_modifiers 255 68>
-			, <&zone_keys 0 54>
-			, <&zone_keys 21 54>
-			, <&zone_keys 34 54>
-			, <&zone_keys 48 54>
-			, <&zone_keys 61 54>
-			, <&zone_keys 75 54>
-			, <&zone_keys 89 54>
-			, <&zone_keys 102 54>
-			, <&zone_keys 116 54>
-			, <&zone_keys 129 54>
-			, <&zone_keys 143 54>
-			, <&zone_keys 156 54>
-			, <&zone_keys 170 54>
-			, <&zone_keys 184 54>
-			, <&zone_modifiers 204 54>
-			, <&zone_modifiers 227 54>
-			, <&zone_modifiers 241 54>
-			, <&zone_modifiers 255 54>
-			, <&zone_keys 0 41>
-			, <&zone_modifiers 24 41>
-			, <&zone_keys 41 41>
-			, <&zone_keys 55 41>
-			, <&zone_keys 68 41>
-			, <&zone_keys 82 41>
-			, <&zone_keys 95 41>
-			, <&zone_keys 109 41>
-			, <&zone_keys 122 41>
-			, <&zone_keys 136 41>
-			, <&zone_keys 149 41>
-			, <&zone_keys 163 41>
-			, <&zone_keys 176 41>
-			, <&zone_keys 190 41>
-			, <&zone_keys 208 41>
-			, <&zone_modifiers 227 41>
-			, <&zone_modifiers 241 41>
-			, <&zone_modifiers 255 41>
-			, <&zone_keys 0 27>
-			, <&zone_modifiers 26 27>
-			, <&zone_keys 45 27>
-			, <&zone_keys 58 27>
-			, <&zone_keys 72 27>
-			, <&zone_keys 85 27>
-			, <&zone_keys 99 27>
-			, <&zone_keys 112 27>
-			, <&zone_keys 126 27>
-			, <&zone_keys 139 27>
-			, <&zone_keys 153 27>
-			, <&zone_keys 166 27>
-			, <&zone_keys 180 27>
-			, <&zone_modifiers 202 27>
-			, <&zone_keys 0 14>
-			, <&zone_modifiers 29 14>
-			, <&zone_keys 51 14>
-			, <&zone_keys 64 14>
-			, <&zone_keys 78 14>
-			, <&zone_keys 91 14>
-			, <&zone_keys 105 14>
-			, <&zone_keys 118 14>
-			, <&zone_keys 132 14>
-			, <&zone_keys 145 14>
-			, <&zone_keys 159 14>
-			, <&zone_keys 172 14>
-			, <&zone_modifiers 199 14>
-			, <&zone_modifiers 241 14>
-			, <&zone_keys 0 0>
-			, <&zone_modifiers 22 0>
-			, <&zone_modifiers 39 0>
-			, <&zone_modifiers 56 0>
-			, <&zone_modifiers 107 0>
-			, <&zone_modifiers 158 0>
-			, <&zone_modifiers 175 0>
-			, <&zone_modifiers 192 0>
-			, <&zone_modifiers 209 0>
-			, <&zone_modifiers 227 0>
-			, <&zone_modifiers 241 0>
-			, <&zone_modifiers 255 0>
-			, <&zone_strip 0 0>
-			, <&zone_strip 64 0>
-			, <&zone_strip 128 0>
-			, <&zone_strip 192 0>
-			, <&zone_strip 255 0>
-			;
+		// Pixels in order defined by &led_matrix
+		pixel-positions = <
+			XY(21, 68) XY(48, 68) XY(61, 68) XY(75, 68) XY(89, 68) XY(109, 68) XY(123, 68) XY(136, 68) XY(150, 68) XY(170, 68) XY(184, 68) XY(197, 68) XY(211, 68) XY(227, 68) XY(241, 68) XY(255, 68)
+			XY(0, 54) XY(21, 54) XY(34, 54) XY(48, 54) XY(61, 54) XY(75, 54) XY(89, 54) XY(102, 54) XY(116, 54) XY(129, 54) XY(143, 54) XY(156, 54) XY(170, 54) XY(184, 54) XY(204, 54) XY(227, 54) XY(241, 54) XY(255, 54)
+			XY(0, 41) XY(24, 41) XY(41, 41) XY(55, 41) XY(68, 41) XY(82, 41) XY(95, 41) XY(109, 41) XY(122, 41) XY(136, 41) XY(149, 41) XY(163, 41) XY(176, 41) XY(190, 41) XY(208, 41) XY(227, 41) XY(241, 41) XY(255, 41)
+			XY(0, 27) XY(26, 27) XY(45, 27) XY(58, 27) XY(72, 27) XY(85, 27) XY(99, 27) XY(112, 27) XY(126, 27) XY(139, 27) XY(153, 27) XY(166, 27) XY(180, 27) XY(202, 27)
+			XY(0, 14) XY(29, 14) XY(51, 14) XY(64, 14) XY(78, 14) XY(91, 14) XY(105, 14) XY(118, 14) XY(132, 14) XY(145, 14) XY(159, 14) XY(172, 14) XY(199, 14) XY(241, 14)
+			XY(0, 0) XY(22, 0) XY(39, 0) XY(56, 0) XY(107, 0) XY(158, 0) XY(175, 0) XY(192, 0) XY(209, 0) XY(227, 0) XY(241, 0) XY(255, 0)
+
+			XY(0, 0) XY(64, 0) XY(128, 0) XY(192, 0) XY(255, 0)
+		>;
 	};
 
-	zone_modifiers: animation_0 {
+	root_animation: animation_0 {
 		compatible = "zmk,animation-compose";
 		status = "okay";
 
-		label = "zone_modifiers";
-		#pixel-cells = <2>;
+		label = "animation_root";
 
 		animations = <
 			&color_pink
-			&effect_ripple
-		>;
-		blending-modes = <
-			BLENDING_MODE_NORMAL
-			BLENDING_MODE_SUBTRACT
-		>;
-	};
-
-	zone_keys: animation_1 {
-		compatible = "zmk,animation-compose";
-		status = "okay";
-
-		label = "zone_keys";
-		#pixel-cells = <2>;
-
-		animations = <
 			&color_blue
+			&pulse,
 			&effect_ripple
 		>;
-		blending-modes = <
-			BLENDING_MODE_NORMAL
-			BLENDING_MODE_SUBTRACT
-		>;
-	};
+	}
 
-	zone_strip: animation_2 {
+	pulse: animation_1 {
 		compatible = "zmk,animation-solid";
 		status = "okay";
 
-		label = "zone_strip";
-		#pixel-cells = <2>;
+		label = "animation_pulse";
+		pixels = <ZONE_STRIP>;
 
 		duration = <5>;
 		colors = <
@@ -230,12 +120,12 @@
 		>;
 	};
 
-	color_pink: animation_3 {
+	color_pink: animation_2 {
 		compatible = "zmk,animation-solid";
 		status = "okay";
 
-		label = "color_pink";
-		#pixel-cells = <2>;
+		label = "animation_color_pink";
+		pixels = <ZONE_MODIFIERS>;
 
 		colors = <HSL(310, 88, 77)>;
 	};
@@ -244,8 +134,8 @@
 		compatible = "zmk,animation-solid";
 		status = "okay";
 
-		label = "color_blue";
-		#pixel-cells = <2>;
+		label = "animation_color_blue";
+		pixels = <ZONE_NO_MODIFIERS>;
 
 		colors = <HSL(180, 90, 44)>;
 	};
@@ -254,8 +144,9 @@
 		compatible = "zmk,animation-ripple";
 		status = "okay";
 
-		label = "effect_ripple";
-		#pixel-cells = <2>;
+		label = "animation_effect_ripple";
+		pixels = <ZONE_KEYS>;
+		blending-mode = <BLENDING_MODE_SUBTRACT>;
 
 		duration = <1000>;
 		color = <HSL(0, 0, 100)>;
