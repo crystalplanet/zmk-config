@@ -6,6 +6,7 @@
 
 /dts-v1/;
 #include <nordic/nrf52840_qiaa.dtsi>
+#include <animation.dtsi>
 
 #include <dt-bindings/zmk/matrix_transform.h>
 #include <dt-bindings/zmk/issi_transform.h>
@@ -13,7 +14,7 @@
 #include <dt-bindings/zmk/animation.h>
 #include <dt-bindings/zmk/animation_compose.h>
 
-#include './muri_one_animation_zones.h';
+#include "muri_one_animation_zones.h"
 
 / {
 	model = "Muri ONE";
@@ -80,77 +81,263 @@
 		drivers = <&led_matrix>;
 
 		// Pixels in order defined by &led_matrix
-		pixel-positions = <
-			XY(21, 68) XY(48, 68) XY(61, 68) XY(75, 68) XY(89, 68) XY(109, 68) XY(123, 68) XY(136, 68) XY(150, 68) XY(170, 68) XY(184, 68) XY(197, 68) XY(211, 68) XY(227, 68) XY(241, 68) XY(255, 68)
-			XY(0, 54) XY(21, 54) XY(34, 54) XY(48, 54) XY(61, 54) XY(75, 54) XY(89, 54) XY(102, 54) XY(116, 54) XY(129, 54) XY(143, 54) XY(156, 54) XY(170, 54) XY(184, 54) XY(204, 54) XY(227, 54) XY(241, 54) XY(255, 54)
-			XY(0, 41) XY(24, 41) XY(41, 41) XY(55, 41) XY(68, 41) XY(82, 41) XY(95, 41) XY(109, 41) XY(122, 41) XY(136, 41) XY(149, 41) XY(163, 41) XY(176, 41) XY(190, 41) XY(208, 41) XY(227, 41) XY(241, 41) XY(255, 41)
-			XY(0, 27) XY(26, 27) XY(45, 27) XY(58, 27) XY(72, 27) XY(85, 27) XY(99, 27) XY(112, 27) XY(126, 27) XY(139, 27) XY(153, 27) XY(166, 27) XY(180, 27) XY(202, 27)
-			XY(0, 14) XY(29, 14) XY(51, 14) XY(64, 14) XY(78, 14) XY(91, 14) XY(105, 14) XY(118, 14) XY(132, 14) XY(145, 14) XY(159, 14) XY(172, 14) XY(199, 14) XY(241, 14)
-			XY(0, 0) XY(22, 0) XY(39, 0) XY(56, 0) XY(107, 0) XY(158, 0) XY(175, 0) XY(192, 0) XY(209, 0) XY(227, 0) XY(241, 0) XY(255, 0)
-
-			XY(0, 0) XY(64, 0) XY(128, 0) XY(192, 0) XY(255, 0)
-		>;
+		pixels
+			= <&pixel 21 68>
+			, <&pixel 48 68>
+			, <&pixel 61 68>
+			, <&pixel 75 68>
+			, <&pixel 89 68>
+			, <&pixel 109 68>
+			, <&pixel 123 68>
+			, <&pixel 136 68>
+			, <&pixel 150 68>
+			, <&pixel 170 68>
+			, <&pixel 184 68>
+			, <&pixel 197 68>
+			, <&pixel 211 68>
+			, <&pixel 227 68>
+			, <&pixel 241 68>
+			, <&pixel 255 68>
+			, <&pixel 0 54>
+			, <&pixel 21 54>
+			, <&pixel 34 54>
+			, <&pixel 48 54>
+			, <&pixel 61 54>
+			, <&pixel 75 54>
+			, <&pixel 89 54>
+			, <&pixel 102 54>
+			, <&pixel 116 54>
+			, <&pixel 129 54>
+			, <&pixel 143 54>
+			, <&pixel 156 54>
+			, <&pixel 170 54>
+			, <&pixel 184 54>
+			, <&pixel 204 54>
+			, <&pixel 227 54>
+			, <&pixel 241 54>
+			, <&pixel 255 54>
+			, <&pixel 0 41>
+			, <&pixel 24 41>
+			, <&pixel 41 41>
+			, <&pixel 55 41>
+			, <&pixel 68 41>
+			, <&pixel 82 41>
+			, <&pixel 95 41>
+			, <&pixel 109 41>
+			, <&pixel 122 41>
+			, <&pixel 136 41>
+			, <&pixel 149 41>
+			, <&pixel 163 41>
+			, <&pixel 176 41>
+			, <&pixel 190 41>
+			, <&pixel 208 41>
+			, <&pixel 227 41>
+			, <&pixel 241 41>
+			, <&pixel 255 41>
+			, <&pixel 0 27>
+			, <&pixel 26 27>
+			, <&pixel 45 27>
+			, <&pixel 58 27>
+			, <&pixel 72 27>
+			, <&pixel 85 27>
+			, <&pixel 99 27>
+			, <&pixel 112 27>
+			, <&pixel 126 27>
+			, <&pixel 139 27>
+			, <&pixel 153 27>
+			, <&pixel 166 27>
+			, <&pixel 180 27>
+			, <&pixel 202 27>
+			, <&pixel 0 14>
+			, <&pixel 29 14>
+			, <&pixel 51 14>
+			, <&pixel 64 14>
+			, <&pixel 78 14>
+			, <&pixel 91 14>
+			, <&pixel 105 14>
+			, <&pixel 118 14>
+			, <&pixel 132 14>
+			, <&pixel 145 14>
+			, <&pixel 159 14>
+			, <&pixel 172 14>
+			, <&pixel 199 14>
+			, <&pixel 241 14>
+			, <&pixel 0 0>
+			, <&pixel 22 0>
+			, <&pixel 39 0>
+			, <&pixel 56 0>
+			, <&pixel 107 0>
+			, <&pixel 158 0>
+			, <&pixel 175 0>
+			, <&pixel 192 0>
+			, <&pixel 209 0>
+			, <&pixel 227 0>
+			, <&pixel 241 0>
+			, <&pixel 255 0>
+			, <&pixel 0 0>
+			, <&pixel 64 0>
+			, <&pixel 128 0>
+			, <&pixel 192 0>
+			, <&pixel 255 0>
+			;
 	};
 
 	root_animation: animation_0 {
+		compatible = "zmk,animation-control";
+		status = "okay";
+
+		animations = <&combine_zones>;
+	};
+
+	combine_zones: animation_1 {
 		compatible = "zmk,animation-compose";
 		status = "okay";
 
-		label = "animation_root";
-
 		animations = <
-			&color_pink
-			&color_blue
-			&pulse,
-			&effect_ripple
-		>;
-	}
-
-	pulse: animation_1 {
-		compatible = "zmk,animation-solid";
-		status = "okay";
-
-		label = "animation_pulse";
-		pixels = <ZONE_STRIP>;
-
-		duration = <5>;
-		colors = <
-			HSL(82, 100, 67)
-			HSL(174, 100, 62)
+			&animation_keys
+			&effect_ctrl
 		>;
 	};
 
-	color_pink: animation_2 {
-		compatible = "zmk,animation-solid";
+	effect_ctrl: animation_2 {
+		compatible = "zmk,animation-control";
 		status = "okay";
 
-		label = "animation_color_pink";
-		pixels = <ZONE_MODIFIERS>;
-
-		colors = <HSL(310, 88, 77)>;
+		animations = <&effect_ripple>;
 	};
 
-	color_blue: animation_4 {
-		compatible = "zmk,animation-solid";
-		status = "okay";
-
-		label = "animation_color_blue";
-		pixels = <ZONE_NO_MODIFIERS>;
-
-		colors = <HSL(180, 90, 44)>;
-	};
-
-	effect_ripple: animation_5 {
+	effect_ripple: animation_3 {
 		compatible = "zmk,animation-ripple";
 		status = "okay";
 
-		label = "animation_effect_ripple";
 		pixels = <ZONE_KEYS>;
-		blending-mode = <BLENDING_MODE_SUBTRACT>;
-
+		blending-mode = <BLENDING_MODE_SCREEN>;
 		duration = <1000>;
 		color = <HSL(0, 0, 100)>;
 		ripple-width = <50>;
+	};
+
+	animation_keys: animation_4 {
+		compatible = "zmk,animation-control";
+		status = "okay";
+
+		animations = <
+			&base_animation
+			&miami_vice
+		>;
+	};
+
+	miami_vice: animation_5 {
+		compatible = "zmk,animation-compose";
+		status = "okay";
+
+		animations = <
+			&miami_blue
+			&miami_purple
+		>;
+	};
+
+	miami_blue: animation_6 {
+		compatible = "zmk,animation-solid";
+		status = "okay";
+
+		pixels = <ZONE_NO_MODIFIERS>;
+		colors = <HSL(180, 90, 44)>;
+	};
+
+	miami_purple: animation_7 {
+		compatible = "zmk,animation-solid";
+		status = "okay";
+
+		pixels = <ZONE_MODIFIERS>;
+		colors = <HSL(310, 88, 77)>;
+	};
+
+	base_animation: animation_17 {
+		compatible = "zmk,animation-compose";
+		status = "okay";
+
+		animations = <
+			&background
+			&rainbow_ctrl
+		>;
+	};
+
+	background: animation_8 {
+		compatible = "zmk,animation-solid";
+		status = "okay";
+
+		pixels = <ZONE_KEYS>;
+		colors = <HSL(236, 30, 50)>;
+	};
+
+	rainbow_ctrl: animation_9 {
+		compatible = "zmk,animation-control";
+		status = "okay";
+
+		animations = <&rainbow>;
+	};
+
+	rainbow: animation_10 {
+		compatible = "zmk,animation-compose";
+		status = "okay";
+
+		animations = <
+			&rainbow_red
+			&rainbow_orange
+			&rainbow_yellow
+			&rainbow_green
+			&rainbow_blue
+			&rainbow_purple
+		>;
+	};
+
+	rainbow_red: animation_11 {
+		compatible = "zmk,animation-solid";
+		status = "okay";
+
+		pixels = <ZONE_ACCENT_0>;
+		colors = <HSL(356, 94, 59)>;
+	};
+
+	rainbow_orange: animation_12 {
+		compatible = "zmk,animation-solid";
+		status = "okay";
+
+		pixels = <ZONE_ACCENT_1>;
+		colors = <HSL(28, 100, 59)>;
+	};
+
+	rainbow_yellow: animation_13 {
+		compatible = "zmk,animation-solid";
+		status = "okay";
+
+		pixels = <ZONE_ACCENT_2>;
+		colors = <HSL(53, 100, 64)>;
+	};
+
+	rainbow_green: animation_14 {
+		compatible = "zmk,animation-solid";
+		status = "okay";
+
+		pixels = <ZONE_ACCENT_3>;
+		colors = <HSL(87, 58, 57)>;
+	};
+
+	rainbow_blue: animation_15 {
+		compatible = "zmk,animation-solid";
+		status = "okay";
+
+		pixels = <ZONE_ACCENT_4>;
+		colors = <HSL(201, 85, 48)>;
+	};
+
+	rainbow_purple: animation_16 {
+		compatible = "zmk,animation-solid";
+		status = "okay";
+
+		pixels = <ZONE_ACCENT_5>;
+		colors = <HSL(275, 63, 51)>;
 	};
 };
 
@@ -192,6 +379,10 @@
 		led-max-current = <5>;
 		sdb-gpios = <&gpio0 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
 		chain-length = <97>;
+
+		red-scaling = <255>;
+		green-scaling = <96>;
+		blue-scaling = <84>;
 
 		map = <
 			RGB(SW(7), CS(14), CS(13), CS(15))
@@ -303,67 +494,6 @@
 			RGB(SW(7), CS(26), CS(27), CS(25))
 			RGB(SW(8), CS(20), CS(19), CS(21))
 			RGB(SW(8), CS(26), CS(27), CS(25))
-		>;
-
-		// Theoretically, it consumes ~78.5 - 89mA with LEDs on max brightness white
-		// using these settings
-		//
-		// Which gives ~18h.
-		red-gamma = <
-			0 0 0 0 1 1 1 1 2 2 2 2 3 3 3 3
-			4 4 4 4 5 5 5 5 6 6 6 6 7 7 7 7
-			8 8 8 8 9 9 9 9 10 10 10 10 11 11 11 11
-			12 12 12 12 13 13 13 13 14 14 14 14 15 15 15 15
-			16 16 16 16 17 17 17 17 18 18 18 18 19 19 19 19
-			20 20 20 20 21 21 21 21 22 22 22 22 23 23 23 23
-			24 24 24 24 25 25 25 25 26 26 26 26 27 27 27 27
-			28 28 28 28 29 29 29 29 32 32 32 32 35 35 35 35
-			38 38 38 38 42 42 42 42 45 45 45 45 49 49 49 49
-			53 53 53 53 57 57 57 57 62 62 62 62 67 67 67 67
-			71 71 71 71 77 77 77 77 82 82 82 82 88 88 88 88
-			93 93 93 93 99 99 99 99 106 106 106 106 112 112 112 112
-			119 119 119 119 126 126 126 126 134 134 134 134 141 141 141 141
-			149 149 149 149 157 157 157 157 166 166 166 166 174 174 174 174
-			183 183 183 183 193 193 193 193 202 202 202 202 212 212 212 212
-			222 222 222 222 233 233 233 233 244 244 244 244 255 255 255 255
-		>;
-
-		green-gamma = <
-			0 0 0 0 1 1 1 1 2 2 2 2 3 3 3 3
-			4 4 4 4 5 5 5 5 6 6 6 6 7 7 7 7
-			8 8 8 8 9 9 9 9 10 10 10 10 11 11 11 11
-			12 12 12 12 13 13 13 13 14 14 14 14 15 15 15 15
-			16 16 16 16 17 17 17 17 18 18 18 18 19 19 19 19
-			20 20 20 20 21 21 21 21 22 22 22 22 23 23 23 23
-			24 24 24 24 25 25 25 25 26 26 26 26 27 27 27 27
-			28 28 28 28 29 29 29 29 30 30 30 30 31 31 31 31
-			32 32 32 32 33 33 33 33 34 34 34 34 35 35 35 35
-			36 36 36 36 37 37 37 37 38 38 38 38 39 39 39 39
-			40 40 40 40 41 41 41 41 42 42 42 42 43 43 43 43
-			44 44 44 44 45 45 45 45 46 46 46 46 47 47 47 47
-			48 48 48 48 49 49 49 49 50 50 50 50 51 51 51 51
-			52 52 52 52 55 55 55 55 58 58 58 58 61 61 61 61
-			64 64 64 64 67 67 67 67 71 71 71 71 74 74 74 74
-			78 78 78 78 82 82 82 82 85 85 85 85 89 89 89 89
-		>;
-
-		blue-gamma = <
-			0 0 0 0 1 1 1 1 2 2 2 2 3 3 3 3
-			4 4 4 4 5 5 5 5 6 6 6 6 7 7 7 7
-			8 8 8 8 9 9 9 9 10 10 10 10 11 11 11 11
-			12 12 12 12 13 13 13 13 14 14 14 14 15 15 15 15
-			16 16 16 16 17 17 17 17 18 18 18 18 19 19 19 19
-			20 20 20 20 21 21 21 21 22 22 22 22 23 23 23 23
-			24 24 24 24 25 25 25 25 26 26 26 26 27 27 27 27
-			28 28 28 28 29 29 29 29 30 30 30 30 31 31 31 31
-			32 32 32 32 33 33 33 33 34 34 34 34 35 35 35 35
-			36 36 36 36 37 37 37 37 38 38 38 38 39 39 39 39
-			40 40 40 40 41 41 41 41 42 42 42 42 43 43 43 43
-			44 44 44 44 45 45 45 45 46 46 46 46 47 47 47 47
-			48 48 48 48 49 49 49 49 50 50 50 50 51 51 51 51
-			52 52 52 52 53 53 53 53 54 54 54 54 55 55 55 55
-			56 56 56 56 58 58 58 58 61 61 61 61 64 64 64 64
-			67 67 67 67 70 70 70 70 73 73 73 73 77 77 77 77
 		>;
 	};
 };
