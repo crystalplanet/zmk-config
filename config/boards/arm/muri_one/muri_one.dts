@@ -76,6 +76,11 @@
 		>;
 	};
 
+	slider: touch_slider_0 {
+		compatible = "zmk,touch_slider";
+		sensor = <&slider_sensor>;
+	};
+
 	animation {
 		compatible = "zmk,animation";
 		drivers = <&led_matrix>;
@@ -186,6 +191,8 @@
 		compatible = "zmk,animation-control";
 		status = "okay";
 
+		label = "ANIMATION_CTRL_0";
+
 		animations = <&combine_zones>;
 	};
 
@@ -202,6 +209,8 @@
 	effect_ctrl: animation_2 {
 		compatible = "zmk,animation-control";
 		status = "okay";
+
+		label = "ANIMATION_CTRL_1";
 
 		animations = <&effect_ripple>;
 	};
@@ -220,6 +229,8 @@
 	animation_keys: animation_4 {
 		compatible = "zmk,animation-control";
 		status = "okay";
+
+		label = "ANIMATION_CTRL_2";
 
 		animations = <
 			&base_animation
@@ -274,6 +285,8 @@
 	rainbow_ctrl: animation_9 {
 		compatible = "zmk,animation-control";
 		status = "okay";
+
+		label = "ANIMATION_CTRL_3";
 
 		animations = <&rainbow>;
 	};
@@ -364,7 +377,7 @@
 	sda-pin = <41>;
 	scl-pin = <40>;
 
-	slider: cy8cmbr3106s@37 {
+	slider_sensor: cy8cmbr3106s@37 {
 		compatible = "cypress,cy8cmbr3106s";
 		label = "CY8CMBR3106S";
 		reg = <0x37>;
