@@ -1,0 +1,149 @@
+#include <dt-bindings/zmk/animation.h>
+
+/ {
+	animation {
+		compatible = "zmk,animation";
+		drivers = <&led_matrix>;
+		animations = <&solid_peach_purple &solid_miami_green>;
+
+		pixels
+			= <&pixel &solid_peach_purple 21 255>
+			, <&pixel &solid_peach_purple 48 255>
+			, <&pixel &solid_peach_purple 61 255>
+			, <&pixel &solid_peach_purple 75 255>
+			, <&pixel &solid_peach_purple 89 255>
+			, <&pixel &solid_peach_purple 109 255>
+			, <&pixel &solid_peach_purple 123 255>
+
+			, <&pixel &solid_peach_purple 136 255>
+			, <&pixel &solid_peach_purple 150 255>
+			, <&pixel &solid_peach_purple 170 255>
+			, <&pixel &solid_peach_purple 184 255>
+			, <&pixel &solid_peach_purple 197 255>
+			, <&pixel &solid_peach_purple 211 255>
+			, <&pixel &solid_peach_purple 227 255>
+			, <&pixel &solid_peach_purple 241 255>
+			, <&pixel &solid_peach_purple 255 255>
+
+			, <&pixel &solid_peach_purple 0 204>
+			, <&pixel &solid_peach_purple 21 204>
+			, <&pixel &solid_peach_purple 34 204>
+			, <&pixel &solid_peach_purple 48 204>
+			, <&pixel &solid_peach_purple 61 204>
+			, <&pixel &solid_peach_purple 75 204>
+			, <&pixel &solid_peach_purple 89 204>
+			, <&pixel &solid_peach_purple 102 204>
+			, <&pixel &solid_peach_purple 116 204>
+
+			, <&pixel &solid_peach_purple 129 204>
+			, <&pixel &solid_peach_purple 143 204>
+			, <&pixel &solid_peach_purple 156 204>
+			, <&pixel &solid_peach_purple 170 204>
+			, <&pixel &solid_peach_purple 184 204>
+			, <&pixel &solid_peach_purple 204 204>
+			, <&pixel &solid_peach_purple 227 204>
+			, <&pixel &solid_peach_purple 241 204>
+			, <&pixel &solid_peach_purple 255 204>
+
+			, <&pixel &solid_peach_purple 0 153>
+			, <&pixel &solid_peach_purple 24 153>
+			, <&pixel &solid_peach_purple 41 153>
+			, <&pixel &solid_peach_purple 55 153>
+			, <&pixel &solid_peach_purple 68 153>
+			, <&pixel &solid_peach_purple 82 153>
+			, <&pixel &solid_peach_purple 95 153>
+			, <&pixel &solid_peach_purple 109 153>
+			, <&pixel &solid_peach_purple 122 153>
+
+			, <&pixel &solid_peach_purple 136 153>
+			, <&pixel &solid_peach_purple 149 153>
+			, <&pixel &solid_peach_purple 163 153>
+			, <&pixel &solid_peach_purple 176 153>
+			, <&pixel &solid_peach_purple 190 153>
+			, <&pixel &solid_peach_purple 208 153>
+			, <&pixel &solid_peach_purple 227 153>
+			, <&pixel &solid_peach_purple 241 153>
+			, <&pixel &solid_peach_purple 255 153>
+
+			, <&pixel &solid_peach_purple 0 102>
+			, <&pixel &solid_peach_purple 26 102>
+			, <&pixel &solid_peach_purple 45 102>
+			, <&pixel &solid_peach_purple 58 102>
+			, <&pixel &solid_peach_purple 72 102>
+			, <&pixel &solid_peach_purple 85 102>
+			, <&pixel &solid_peach_purple 99 102>
+
+			, <&pixel &solid_peach_purple 112 102>
+			, <&pixel &solid_peach_purple 126 102>
+			, <&pixel &solid_peach_purple 139 102>
+			, <&pixel &solid_peach_purple 153 102>
+			, <&pixel &solid_peach_purple 166 102>
+			, <&pixel &solid_peach_purple 180 102>
+			, <&pixel &solid_peach_purple 202 102>
+
+			, <&pixel &solid_peach_purple 0 51>
+			, <&pixel &solid_peach_purple 29 51>
+			, <&pixel &solid_peach_purple 51 51>
+			, <&pixel &solid_peach_purple 64 51>
+			, <&pixel &solid_peach_purple 78 51>
+			, <&pixel &solid_peach_purple 91 51>
+			, <&pixel &solid_peach_purple 105 51>
+
+			, <&pixel &solid_peach_purple 118 51>
+			, <&pixel &solid_peach_purple 132 51>
+			, <&pixel &solid_peach_purple 145 51>
+			, <&pixel &solid_peach_purple 159 51>
+			, <&pixel &solid_peach_purple 172 51>
+			, <&pixel &solid_peach_purple 199 51>
+			, <&pixel &solid_peach_purple 241 51>
+
+			, <&pixel &solid_peach_purple 0 0>
+			, <&pixel &solid_peach_purple 22 0>
+			, <&pixel &solid_peach_purple 39 0>
+			, <&pixel &solid_peach_purple 56 0>
+			, <&pixel &solid_peach_purple 107 0>
+
+			, <&pixel &solid_peach_purple 158 0>
+			, <&pixel &solid_peach_purple 175 0>
+			, <&pixel &solid_peach_purple 192 0>
+			, <&pixel &solid_peach_purple 209 0>
+			, <&pixel &solid_peach_purple 227 0>
+			, <&pixel &solid_peach_purple 241 0>
+			, <&pixel &solid_peach_purple 255 0>
+
+			, <&pixel &solid_miami_green 0 0>
+			, <&pixel &solid_miami_green 64 0>
+			, <&pixel &solid_miami_green 128 0>
+			, <&pixel &solid_miami_green 192 0>
+			, <&pixel &solid_miami_green 255 0>
+			;
+	};
+
+	pixel: animation_pixel_0 {
+		compatible = "zmk,animation-pixel";
+		#pixel-cells = <3>;
+	};
+
+	solid_peach_purple: animation_0 {
+		compatible = "zmk,animation-solid";
+		status = "okay";
+
+		duration = <10>;
+		colors = <
+			HSL(30, 93, 71)
+			HSL(256, 50, 40)
+		>;
+	};
+
+	// Good example of HSL interpolation looking quite bad
+	solid_miami_green: animation_1 {
+		compatible = "zmk,animation-solid";
+		status = "okay";
+
+		duration = <10>;
+		colors = <
+			HSL(82, 100, 67)
+			HSL(174, 100, 62)
+		>;
+	};
+};
