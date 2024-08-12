@@ -85,6 +85,7 @@
 	animation {
 		compatible = "zmk,animation";
 		drivers = <&led_matrix>;
+		chain-lengths = <97>;
 
 		// Pixels in order defined by &led_matrix
 		pixels
@@ -204,7 +205,7 @@
 		animations = <
 			&animation_keys
 			&effect_ctrl
-			&animation_strip
+			&effect_wpm
 		>;
 	};
 
@@ -222,7 +223,7 @@
 		status = "okay";
 
 		pixels = <ZONE_KEYS>;
-		blending-mode = <BLENDING_MODE_SCREEN>;
+		blending-mode = "screen";
 		duration = <1000>;
 		color = <HSL(0, 0, 100)>;
 		ripple-width = <50>;
@@ -355,12 +356,12 @@
 		colors = <HSL(275, 63, 51)>;
 	};
 
-	animation_strip: animation_18 {
-		compatible = "zmk,animation-solid";
+	effect_wpm: animation_18 {
+		compatible = "zmk,animation-wpm";
 		status = "okay";
 
 		pixels = <ZONE_STRIP>;
-		colors = <HSL(47, 100, 50)>;
+		colors = <HSL(187, 53, 51) HSL(355, 84, 57)>;
 	};
 };
 
