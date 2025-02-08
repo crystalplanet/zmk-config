@@ -1,0 +1,19 @@
+manifest:
+  remotes:
+    - name: zmkfirmware
+      url-base: https://github.com/zmkfirmware
+    - name: crystalplanet
+      url-base: https://github.com/crystalplanet
+  projects:
+    - name: zmk
+      remote: zmkfirmware
+      revision: main
+      import: app/west.yml
+    - name: zephyr-issi-drivers
+      remote: crystalplanet
+      revision: main
+    - name: zmk-rgb-fx
+      remote: crystalplanet
+      revision: main
+  self:
+    path: config

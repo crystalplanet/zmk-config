@@ -1,0 +1,6 @@
+# Copyright (c) 2024 Kuba Birecki
+# SPDX-License-Identifier: MIT
+
+config BOARD_ONIGIRI
+	bool "onigiri_board"
+	depends on SOC_NRF52840_QIAA

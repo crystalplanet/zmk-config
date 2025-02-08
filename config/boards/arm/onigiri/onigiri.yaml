@@ -1,0 +1,18 @@
+identifier: onigiri
+name: Onigiri
+type: keyboard
+arch: arm
+ram: 256
+flash: 1024
+toolchain:
+  - zephyr
+  - gnuarmemb
+  - xtools
+supported:
+  - adc
+  - ble
+  - counter
+  - gpio
+  - i2c
+  - kscan
+  - usb_device
